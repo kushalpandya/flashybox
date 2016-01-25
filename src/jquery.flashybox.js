@@ -68,6 +68,12 @@
         '</span>'
     ].join('');
 
+    /**
+     * String formatter.
+     * Accepts first param as target string, and following params as strings to
+     * replace placeholders (eg; {0}).
+     * courtesy: SO <http://stackoverflow.com/a/1038930/414749>
+     */
     fnStrFormat = function() {
         var s = arguments[0],
             reg,
@@ -81,6 +87,9 @@
         return s;
     };
 
+    /**
+     * Gets Next Box Tpl which is not matching the previous (thus keeping unique boxes together).
+     */
     fnGetNextBoxTpl = function() {
         if (prevBoxOrder === 0)
         {
@@ -104,10 +113,18 @@
         }
     };
 
+    /**
+     * Quick Random number generator between 0 to max.
+     */
     fnGetRandom = function(max) {
         return Math.floor(Math.random() * (max - 1 + 1)) + 1;
     };
 
+    /**
+     * Core flashing method.
+     * It fadesOut the image, then replaces its src with the provided imageSrc
+     * and fadesIn the image again.
+     */
     fnSwapImageSrc = function($imageRef, imageSrc) {
         $imageRef.fadeOut("slow", function() {
             $imageRef.attr('src', imageSrc);
@@ -115,6 +132,9 @@
         });
     };
 
+    /**
+     * Core plugin method.
+     */
     $.fn.flashybox = function(config) {
         var defaultConfig = {},
             containerWidth = this.width(),
@@ -132,15 +152,18 @@
         defaultConfig = {
             boxWidth: 300,                  // Width to Keep for Box
             flashDuration: 3000,            // Duration to wait before flash
-            flashAllAtOnce: false            // Flash all Images at Once.
+            flashAllAtOnce: false           // Flash all Images at Once.
         };
 
+        // Override with user config.
         config = $.extend(defaultConfig, config);
 
+        // Generate Flashy boxes until combined width of all the generated boxes matches with the container.
         while (totalWidth < containerWidth)
         {
             currentBoxTpl = fnGetNextBoxTpl();
 
+            // If it is Flashy box full && there are enough images available for box to fill in.
             if (currentBoxTpl.type === 1 &&
                 imageIndex + 1 <= imagesCount)
             {
@@ -148,6 +171,7 @@
                 imageIndex++;
                 totalWidth += config.boxWidth;
             }
+            // If it is Flashy box left-right or top-bottom && there are at least 3 images available.
             else if (imageIndex + 3 <= imagesCount)
             {
                 masterTpl += fnStrFormat(currentBoxTpl.tpl,
@@ -159,6 +183,8 @@
                 totalWidth += config.boxWidth;
             }
 
+            // If width of all boxes combined is still less than container width.
+            // and we have ran out of images, reset the index.
             if (totalWidth < containerWidth &&
                 imageIndex >= imagesCount)
                 imageIndex = 0;
@@ -166,10 +192,12 @@
 
         this.html(masterTpl);
 
+        // Collect all image sources.
         imagesList = this.find('img');
         for (i = 0; i < imagesList.length; i++)
             imagesSrcList.push($(imagesList[i]).attr('src'));
 
+        // Start Slideshow.
         intervalObj = setInterval(function() {
             var imagesListCount = imagesList.length,
                 targetImg = imagesList[fnGetRandom(imagesListCount)],
