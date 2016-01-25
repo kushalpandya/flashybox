@@ -32,7 +32,10 @@
     <script src="src/jquery.flashybox.js" charset="utf-8"></script>
     <script type="text/javascript">
         $(function() {
-            $('.flashybox-container').flashybox();
+            $('.flashybox-container').flashybox({
+                flashDuration: 2000,
+                flashAtOnce: 3
+            });
         });
     </script>
 </body>

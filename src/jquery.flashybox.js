@@ -152,7 +152,8 @@
         defaultConfig = {
             boxWidth: 300,                  // Width to Keep for Box
             flashDuration: 3000,            // Duration to wait before flash
-            flashAllAtOnce: false           // Flash all Images at Once.
+            flashAllAtOnce: false,          // Flash all Images at Once.
+            flashAtOnce: 1                  // Provide number of images to flash at once (applicable only if flashAllAtOnce is false)
         };
 
         // Override with user config.
@@ -210,7 +211,20 @@
                 });
             }
             else
-                fnSwapImageSrc($(targetImg), newImgSrc);
+            {
+                if (config.flashAtOnce > 1)
+                {
+                    for (i = 0; i < config.flashAtOnce; i++)
+                    {
+                        fnSwapImageSrc(
+                            $(imagesList[fnGetRandom(imagesListCount)]),
+                            imagesSrcList[fnGetRandom(imagesListCount)]
+                        );
+                    }
+                }
+                else
+                    fnSwapImageSrc($(targetImg), newImgSrc);
+            }
         }, config.flashDuration);
     };
 }));
