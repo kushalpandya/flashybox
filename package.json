@@ -1,0 +1,29 @@
+{
+  "name": "flashybox",
+  "version": "0.1.0",
+  "description": "A jQuery Plugin to Show image collage as flashy boxes.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kushalpandya/flashybox.git"
+  },
+  "keywords": [
+    "js",
+    "jquery",
+    "lightbox",
+    "slideshow"
+  ],
+  "author": "Kushal Pandya <kushalspandya@gmail.com> (https://doublslash.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kushalpandya/flashybox/issues"
+  },
+  "homepage": "https://github.com/kushalpandya/flashybox#readme",
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "normalize.css": "^3.0.3"
+  }
+}
