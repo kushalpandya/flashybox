@@ -6,9 +6,73 @@
     <link rel="stylesheet" href="node_modules/normalize.css/normalize.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="flashybox.css" media="screen" title="no title" charset="utf-8">
     <script src="node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
+    <style media="screen">
+        body {
+            overflow: hidden;
+        }
+        
+        .flashybox-container {
+            margin-top: 100px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello Flashybox!</h1>
+    <div class="flashybox-container">
+        <span class="flashybox-item flashbox-full">
+            <span class="image-container"><img src="images/img1.jpg" alt="" /></span>
+        </span>
+        <span class="flashybox-item flashbox-leftright">
+            <span class="childbox-item childbox-full">
+                <span class="image-container"><img src="images/img2.jpg" alt="" /></span>
+            </span>
+            <span class="childbox-item childbox-topbottom">
+                <span class="image-container"><img src="images/img3.jpg" alt="" /></span>
+                <span class="image-container"><img src="images/img4.jpg" alt="" /></span>
+            </span>
+        </span>
+        <span class="flashybox-item flashbox-topbottom">
+            <span class="childbox-item childbox-leftright">
+                <span class="image-container"><img src="images/img5.jpg" alt="" /></span>
+                <span class="image-container"><img src="images/img6.jpg" alt="" /></span>
+            </span>
+            <span class="childbox-item childbox-full">
+                <span class="image-container"><img src="images/img7.jpg" alt="" /></span>
+            </span>
+        </span>
+        <span class="flashybox-item flashbox-full">
+            <span class="image-container"><img src="images/img1.jpg" alt="" /></span>
+        </span>
+        <span class="flashybox-item flashbox-leftright">
+            <span class="childbox-item childbox-full">
+                <span class="image-container"><img src="images/img2.jpg" alt="" /></span>
+            </span>
+            <span class="childbox-item childbox-topbottom">
+                <span class="image-container"><img src="images/img3.jpg" alt="" /></span>
+                <span class="image-container"><img src="images/img4.jpg" alt="" /></span>
+            </span>
+        </span>
+        <span class="flashybox-item flashbox-topbottom">
+            <span class="childbox-item childbox-leftright">
+                <span class="image-container"><img src="images/img5.jpg" alt="" /></span>
+                <span class="image-container"><img src="images/img6.jpg" alt="" /></span>
+            </span>
+            <span class="childbox-item childbox-full">
+                <span class="image-container"><img src="images/img7.jpg" alt="" /></span>
+            </span>
+        </span>
+        <span class="flashybox-item flashbox-full">
+            <span class="image-container"><img src="images/img1.jpg" alt="" /></span>
+        </span>
+        <span class="flashybox-item flashbox-topbottom">
+            <span class="childbox-item childbox-leftright">
+                <span class="image-container"><img src="images/img5.jpg" alt="" /></span>
+                <span class="image-container"><img src="images/img6.jpg" alt="" /></span>
+            </span>
+            <span class="childbox-item childbox-full">
+                <span class="image-container"><img src="images/img7.jpg" alt="" /></span>
+            </span>
+        </span>
+    </div>
     <script src="src/jquery.flashybox.js" charset="utf-8"></script>
 </body>
 </html>
