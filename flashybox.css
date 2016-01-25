@@ -8,3 +8,84 @@
  *
  * Main Flashybox Stylesheet.
  */
+
+.flashybox-container {
+    height: 250px;
+    width: 200%;
+    overflow: hidden;
+}
+
+.flashybox-container:after,
+.flashybox-container .flashybox-item:after {
+    content: '.';
+    height: 0;
+    display: block;
+    visibility: hidden;
+}
+
+.flashybox-container .flashybox-item,
+.flashybox-container .flashybox-item .childbox-item {
+    display: inline-block;
+    float: left;
+}
+
+.flashybox-container .flashybox-item {
+    max-width: 300px;
+    height: inherit;
+}
+
+.flashybox-container .flashybox-item .image-container {
+    display: block;
+    overflow: hidden;
+    background: black;
+}
+
+.flashybox-container .flashybox-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.flashybox-item.flashbox-full .image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.flashybox-item.flashbox-leftright .childbox-full,
+.flashybox-item.flashbox-leftright .childbox-topbottom {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.flashybox-item.flashbox-leftright .childbox-topbottom {
+    float: right;
+}
+
+.flashybox-item.flashbox-topbottom .childbox-full,
+.flashybox-item.flashbox-topbottom .childbox-leftright {
+    display: block;
+    width: 100%;
+    height: 50%;
+}
+
+.flashybox-item .childbox-topbottom .image-container {
+    width: 100%;
+    height: 50%;
+}
+
+.flashybox-item .childbox-leftright .image-container {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.flashybox-item .childbox-leftright .image-container:last-child {
+    float: right;
+}
+
+.flashybox-item.flashbox-leftright .childbox-full img {
+    width: auto;
+    height: 100%;
+}
