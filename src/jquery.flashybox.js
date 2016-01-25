@@ -121,18 +121,6 @@
     };
 
     /**
-     * Core flashing method.
-     * It fadesOut the image, then replaces its src with the provided imageSrc
-     * and fadesIn the image again.
-     */
-    fnSwapImageSrc = function($imageRef, imageSrc) {
-        $imageRef.fadeOut("slow", function() {
-            $imageRef.attr('src', imageSrc);
-            $imageRef.fadeIn("slow");
-        });
-    };
-
-    /**
      * Core plugin method.
      */
     $.fn.flashybox = function(config) {
@@ -146,18 +134,32 @@
             masterTpl = '',
             intervalObj,
             currentBoxTpl,
+            fnSwapImageSrc,
             i;
 
         /*** Default config options that Flashybox provides. ***/
         defaultConfig = {
             boxWidth: 300,                  // Width to Keep for Box
-            flashDuration: 3000,            // Duration to wait before flash
+            flashInterval: 3000,            // Interval to wait before flash
+            animationDuration: "slow",      // Duration for animation; value can be anything that jQuery fadeIn/fadeOut duration supports.
             flashAllAtOnce: false,          // Flash all Images at Once.
             flashAtOnce: 1                  // Provide number of images to flash at once (applicable only if flashAllAtOnce is false)
         };
 
         // Override with user config.
         config = $.extend(defaultConfig, config);
+
+        /**
+         * Core flashing method.
+         * It fadesOut the image, then replaces its src with the provided imageSrc
+         * and fadesIn the image again.
+         */
+        fnSwapImageSrc = function($imageRef, imageSrc) {
+            $imageRef.fadeOut(config.animationDuration, function() {
+                $imageRef.attr('src', imageSrc);
+                $imageRef.fadeIn(config.animationDuration);
+            });
+        };
 
         // Generate Flashy boxes until combined width of all the generated boxes matches with the container.
         while (totalWidth < containerWidth)
@@ -225,6 +227,6 @@
                 else
                     fnSwapImageSrc($(targetImg), newImgSrc);
             }
-        }, config.flashDuration);
+        }, config.flashInterval);
     };
 }));
