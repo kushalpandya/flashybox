@@ -4,7 +4,9 @@ Flashybox
 A small (less than 3 KB gzipped!) jQuery (2.x) plugin to show fixed size image collage with fading images. You just provide list of images in a markup and call `flashybox()` on it and it'll covert images into flashybox wall.
 
 ###Example
-![Example Result](http://i.imgur.com/u0si8hg.gifv)
+![Example Result](http://i.imgur.com/MfpemhW.png)
+
+Click here to view [demo GIF](http://i.imgur.com/u0si8hg.gifv).
 
 ###Usage
 ---
