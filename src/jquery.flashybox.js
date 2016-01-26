@@ -39,31 +39,31 @@
         fnSwapImageSrc;
 
     fullBoxTpl = [
-        '<span class="flashybox-item flashbox-full">',
-            '<span class="image-container"><img src="{0}" alt="" /></span>',
+        '<span class="flashybox-item flashbox-full" style="width: {0}px;">',
+            '<span class="image-container"><img src="{1}" alt="" /></span>',
         '</span>'
     ].join('');
 
     lrBoxTpl = [
-        '<span class="flashybox-item flashbox-leftright">',
+        '<span class="flashybox-item flashbox-leftright" style="width: {0}px;">',
             '<span class="childbox-item childbox-full">',
-                '<span class="image-container"><img src="{0}" alt="" /></span>',
+                '<span class="image-container"><img src="{1}" alt="" /></span>',
             '</span>',
             '<span class="childbox-item childbox-topbottom">',
-                '<span class="image-container"><img src="{1}" alt="" /></span>',
                 '<span class="image-container"><img src="{2}" alt="" /></span>',
+                '<span class="image-container"><img src="{3}" alt="" /></span>',
             '</span>',
         '</span>'
     ].join('');
 
     tbBoxTpl = [
-        '<span class="flashybox-item flashbox-topbottom">',
+        '<span class="flashybox-item flashbox-topbottom" style="width: {0}px;">',
             '<span class="childbox-item childbox-leftright">',
-                '<span class="image-container"><img src="{0}" alt="" /></span>',
                 '<span class="image-container"><img src="{1}" alt="" /></span>',
+                '<span class="image-container"><img src="{2}" alt="" /></span>',
             '</span>',
             '<span class="childbox-item childbox-full">',
-                '<span class="image-container"><img src="{2}" alt="" /></span>',
+                '<span class="image-container"><img src="{3}" alt="" /></span>',
             '</span>',
         '</span>'
     ].join('');
@@ -139,7 +139,8 @@
 
         /*** Default config options that Flashybox provides. ***/
         defaultConfig = {
-            boxWidth: 300,                  // Width to Keep for Box
+            boxWidth: 300,                  // Width to Keep for each Flashy Box containing images.
+            boxHeight: 250,                 // Height to keep for each Flasy Box.
             flashInterval: 3000,            // Interval to wait before flash
             animationDuration: "slow",      // Duration for animation; value can be anything that jQuery fadeIn/fadeOut duration supports.
             flashAllAtOnce: false,          // Flash all Images at Once.
@@ -170,7 +171,10 @@
             if (currentBoxTpl.type === 1 &&
                 imageIndex + 1 <= imagesCount)
             {
-                masterTpl += fnStrFormat(currentBoxTpl.tpl, $(imagesList[imageIndex]).attr('src'));
+                masterTpl += fnStrFormat(currentBoxTpl.tpl,
+                                config.boxWidth,
+                                $(imagesList[imageIndex]).attr('src')
+                             );
                 imageIndex++;
                 totalWidth += config.boxWidth;
             }
@@ -178,6 +182,7 @@
             else if (imageIndex + 3 <= imagesCount)
             {
                 masterTpl += fnStrFormat(currentBoxTpl.tpl,
+                    config.boxWidth,
                     $(imagesList[imageIndex++]).attr('src'),
                     $(imagesList[imageIndex++]).attr('src'),
                     $(imagesList[imageIndex++]).attr('src')
@@ -194,6 +199,7 @@
         }
 
         this.html(masterTpl);
+        this.height(config.boxHeight);
 
         // Collect all image sources.
         imagesList = this.find('img');
