@@ -10,7 +10,6 @@
  */
 
 .flashybox-container {
-    height: 250px;
     width: 120%;
     overflow: hidden;
 }
@@ -30,7 +29,6 @@
 }
 
 .flashybox-container .flashybox-item {
-    max-width: 300px;
     height: inherit;
 }
 
