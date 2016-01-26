@@ -139,14 +139,14 @@
 
         /*** Default config options that Flashybox provides. ***/
         defaultConfig = {
-            boxWidth: 300,                  // Width to Keep for each Flashy Box containing images.
-            boxHeight: 250,                 // Height to keep for each Flasy Box.
-            flashInterval: 3000,            // Interval to wait before flash
-            animationDuration: "slow",      // Duration for animation; value can be anything that jQuery fadeIn/fadeOut duration supports.
-            flashAllAtOnce: false,          // Flash all Images at Once.
-            flashAtOnce: 1                  // Provide number of images to flash at once (applicable only if flashAllAtOnce is false)
+            boxWidth: 300,                  // Width in Px to Keep for each Flashy Box containing images (Default: 300).
+            boxHeight: 250,                 // Height to keep for each Flasy Box (Default: 250).
+            flashInterval: 3000,            // Interval in MS to wait before flash (Default: 3 sec).
+            animationDuration: "slow",      // Duration for animation; value can be anything that jQuery fadeIn/fadeOut duration supports (Default: "slow").
+            flashAllAtOnce: false,          // Flash all Images at Once (Default: false).
+            flashAtOnce: 1                  // Provide number of images to flash at once (applicable only if flashAllAtOnce is false, Default: 1).
         };
-
+        
         // Override with user config.
         config = $.extend(defaultConfig, config);
 
