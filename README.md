@@ -1,5 +1,11 @@
 Flashybox
 ======================
+![NPM](https://img.shields.io/npm/dt/flashybox.svg)
+
+[![NPM](https://img.shields.io/npm/dt/flashybox.svg)](https://npmjs.org/package/flashybox)
+
+[![NPM](https://nodei.co/npm/flashybox.png?compact=true)](https://npmjs.org/package/flashybox)
+
 
 A small (less than 3 KB gzipped!) jQuery (2.x) plugin to show fixed size image collage with fading images. You just provide list of images in a markup and call `flashybox()` on it and it'll covert images into flashybox wall.
 
