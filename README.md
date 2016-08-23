@@ -1,7 +1,5 @@
 Flashybox
 ======================
-![NPM](https://img.shields.io/npm/dt/flashybox.svg)
-
 [![NPM](https://img.shields.io/npm/dt/flashybox.svg)](https://npmjs.org/package/flashybox)
 
 [![NPM](https://nodei.co/npm/flashybox.png?compact=true)](https://npmjs.org/package/flashybox)
